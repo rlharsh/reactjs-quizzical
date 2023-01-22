@@ -1,0 +1,13 @@
+.menu {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.4rem;
+}
+.menu__subheader {
+  font-style: italic;
+  margin-top: 0.5rem;
+}/*# sourceMappingURL=menu.css.map */

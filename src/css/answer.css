@@ -1,0 +1,15 @@
+.answer {
+  width: 100%;
+  height: 2.4rem;
+  border: 2px solid #293264;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #293264;
+}
+.answer:hover, .answer:focus {
+  background-color: #293264;
+  color: #F5F7FB;
+}/*# sourceMappingURL=answer.css.map */

@@ -1,0 +1,21 @@
+.button {
+  margin-top: 1.8rem;
+  width: 12.5rem;
+  height: 3.25rem;
+  border: none;
+  background-color: #4D5B9E;
+  border-radius: 15px;
+  color: #F5F7FB;
+  cursor: pointer;
+  font-family: "Karla", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.button--submit {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+}
+.button:hover {
+  background-color: #6e81e2;
+}/*# sourceMappingURL=controls.css.map */

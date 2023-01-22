@@ -1,0 +1,20 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&display=swap');
+
+body {
+    font-family:    $font-primary;
+}
+
+h1,
+h2,
+h3,
+p {
+    text-align:     center;
+    line-height:    1.2rem;
+}
+
+h1 {
+    color:          $color-text;
+    font-size:      $font-size-large;
+    font-weight:    $font-bold;
+}

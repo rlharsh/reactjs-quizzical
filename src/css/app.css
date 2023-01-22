@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&display=swap");
+.button {
+  margin-top: 1.8rem;
+  width: 12.5rem;
+  height: 3.25rem;
+  border: none;
+  background-color: #4D5B9E;
+  border-radius: 15px;
+  color: #F5F7FB;
+  cursor: pointer;
+  font-family: "Karla", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.button--submit {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+}
+.button:hover {
+  background-color: #6e81e2;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+}
+
+h1,
+h2,
+h3,
+p {
+  text-align: center;
+  line-height: 1.2rem;
+}
+
+h1 {
+  color: #293264;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-color: #293264;
+  position: relative;
+}
+
+main {
+  height: 100vh;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blob {
+  position: fixed;
+}
+.blob__blue {
+  width: 25%;
+  bottom: -6rem;
+  left: -6rem;
+}
+.blob__yellow {
+  width: 25%;
+  top: -6rem;
+  right: -6rem;
+}/*# sourceMappingURL=app.css.map */
