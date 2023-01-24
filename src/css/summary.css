@@ -1,0 +1,28 @@
+@import 'animate.css';
+.box {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-color: #28293D;
+  max-width: 750px;
+  position: relative;
+  width: 90%;
+  min-width: 30rem;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 6rem;
+  padding-top: 6rem;
+  color: #8F90A7;
+}
+
+.results-header {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: #FFCC00;
+}/*# sourceMappingURL=summary.css.map */

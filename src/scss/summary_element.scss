@@ -1,0 +1,31 @@
+@import './variables.scss';
+
+.element-wrapper {
+    max-width: 100%;
+}
+
+.element {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    &__question {
+        h2 {
+            user-select:    none;
+            color:          $color-text-white;
+            font-size:      $font-size-medium;
+            line-height:    2rem;
+            font-weight:    $font-light;
+        }
+    }
+
+    &__responses {
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+        max-width: 100%;
+        display: flex;
+        gap: 2rem;
+    }
+}

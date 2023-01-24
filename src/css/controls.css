@@ -1,9 +1,13 @@
 .button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   margin-top: 1.8rem;
   width: 12.5rem;
   height: 3.25rem;
   border: none;
-  background-color: #4D5B9E;
+  background-color: #AC5CD9;
   border-radius: 15px;
   color: #F5F7FB;
   cursor: pointer;
@@ -17,5 +21,20 @@
   bottom: 2rem;
 }
 .button:hover {
-  background-color: #6e81e2;
+  background-color: #DEA5E8;
+}
+
+.small-button {
+  width: 2.8rem;
+  height: 2.8rem;
+  border: none;
+  background: #FFCC00;
+  border-radius: 50%;
+  color: #FAFAFC;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.small-button:hover {
+  background: #FEED73;
 }/*# sourceMappingURL=controls.css.map */

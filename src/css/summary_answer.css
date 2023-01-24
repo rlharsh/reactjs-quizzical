@@ -1,0 +1,25 @@
+.answer-wrap {
+  background-color: #AC5CD9;
+  padding: 0.4rem 1rem;
+  width: 100%;
+  color: #FAFAFC;
+  border-radius: 6px;
+  width: 8rem;
+  min-height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary-answer {
+  font-size: 0.8vw;
+  text-align: center;
+}
+
+.correct {
+  background-color: #05C270;
+}
+
+.incorrect {
+  background-color: #FF3B3B;
+}/*# sourceMappingURL=summary_answer.css.map */

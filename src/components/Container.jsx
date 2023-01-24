@@ -7,71 +7,104 @@ import '../css/container.css'
 import { nanoid } from 'nanoid';
 
 const Container = (props) => {
+    
+    const [questionIndex, setQuestionIndex] = useState(0);
+    const [answeredQuestions, setAnsweredQuestions] = useState([]);
+    const [endGame, setEndGame] = useState(false);
+    
+    const quizQuestions = props.quizQuestions;
 
-    const [answerSubmitted, setAnswerSubmitted] = useState(false);
-    const [availableAnswers, setAvailableAnswers] = useState([]);
-    const [activeQuestion, setActiveQuestion] = useState({});
-    const [activeIndex, setActiveIndex] = useState(0);
+    let quizQuestion = "";
+    let quizCategory = "";
+    let quizAnswers = [];
 
-    function selectAnswer(id) {
+    useEffect(() => {
+        if (endGame) {
+            setTimeout(() => {
+                props.onSelectionChanged(answeredQuestions);
+            }, 2000);
+        }
+    }, [endGame]);
 
-        // How the hell does this say {0} on the console,
-        // but I can clearly see all of the answers on the screen?
-        console.log(availableAnswers.length);
+    let bookmarkedQuestions = [];
+
+    function answerSelected(id) {
+        let newArray = [];
+
+        newArray = quizAnswers.map((answer) => {
+            return {
+                key: nanoid(),
+                question: quizQuestion,
+                id: answer.props.id,
+                answer: answer.props.answer,
+                selected: id === answer.props.id ? true : false,
+                correct: answer.props.correct
+            }
+        })
+        
+        setAnsweredQuestions((prevState) => [...prevState, newArray]);
+        processNextQuestion();
     }
 
-    useEffect(() => {
-        setActiveQuestion(() => props.quizQuestions[activeIndex])
-    }, [])
 
-    useEffect(() => {
-        let answers = [];
-        if (!isEmptyObject(activeQuestion)) {
-            answers = activeQuestion.answerIncorrect.map((answer) => {
-                const id = nanoid();
-                return <Answer
-                    key ={id}
-                    answer={answer}
-                    correct={false}
-                    id={id}
-                    select={() => selectAnswer(id)}
-                />
-        });
+    function handleBookmark(id) {
 
-        const id = nanoid();
-        answers.push(
-            <Answer
+    }
+
+    function processNextQuestion() {
+        if (questionIndex + 1 < props.quizQuestions.length) {
+            setQuestionIndex((prevState) => prevState + 1);
+        } else {
+            // The game is over!
+            setEndGame(true);
+        }
+    }
+
+    function buildAnswerIndex() {
+        quizAnswers = quizQuestions[questionIndex].answerIncorrect.map((answer) => {
+            let id = nanoid();
+            return <Answer 
                 key={id}
-                answer={activeQuestion.answerCorrect}
+                answer={answer}
+                selected={false}
+                click={() => answerSelected(id)}
+                correct={false}
+                id={id}
+                bookmarked={false}
+            />
+        });
+        let id = nanoid();
+        quizAnswers.push(
+            <Answer
+                key={nanoid()}
+                answer={quizQuestions[questionIndex].answerCorrect}
+                selected={false}
+                click={() => answerSelected(id)}
                 correct={true}
                 id={id}
-                select={() => selectAnswer(id)}
+                bookmarked={false}
             />
         );
-
-        setAvailableAnswers(answers);
-        }
-    
-        return () => {
-            console.log("cleanup")
-        }
-
-    }, [activeIndex, activeQuestion])
-
-    function isEmptyObject(obj){
-        return JSON.stringify(obj) === '{}'
+        quizQuestion = quizQuestions[questionIndex].question;
+        quizCategory = quizQuestions[questionIndex].category;
     }
 
+    // Build the answer index!
+    buildAnswerIndex();
+
     return (
-        <div className='container'>
-            <h3 className='container__question-number'>Question: <span className='container__question-number__emphasize'>2</span>/5</h3>
+        <div className={`container animate__animated animate__bounceInRight ${endGame ? "animate__hinge" : null}`}>
+            <h3 className='container__question-number'>Question: <span className='container__question-number__emphasize'>{questionIndex + 1}</span>/5<br /></h3>
+            <span className='container__question-number__category'>{quizCategory}</span>
             <div className='container__question'>
-                <h2>{activeQuestion.question}</h2>
+                <h2>{quizQuestion}</h2>
             </div>
             <div className="container__answer">
-                {availableAnswers}
+                {quizAnswers}
             </div>
-            {/* <button className='button button--submit'>Next Question</button> */}
+            <div className='button-container'>
+                <button className='small-button'><i className="fa-regular fa-bookmark"></i></button>
+            </div>
         </div>
     )
 }

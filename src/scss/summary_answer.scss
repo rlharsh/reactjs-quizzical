@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+.answer-wrap {
+    background-color: $color-button;
+    padding: 0.4rem 1rem;
+    width: 100%;
+    color: $color-text-white;
+    border-radius: 6px;
+    width: 8rem;
+    min-height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.summary-answer {
+    font-size: 0.8vw;
+    text-align: center;
+}
+
+.correct {
+    background-color: $color-green;
+}
+
+.incorrect {
+    background-color: $color-red;
+}

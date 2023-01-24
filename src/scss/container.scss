@@ -1,10 +1,13 @@
 @import './variables.scss';
 
 .container {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color:   $color-div;
+    max-width:          750px;
     position:           relative;
-    background-color:   $color-text-white;
     width:              90%;
-    height:             40vh;
+    height:             24rem !important;
+    min-width:          30rem;
     border-radius:      10px;
     padding:            2rem;
 
@@ -17,17 +20,27 @@
     color:                  $color-text;
 
     &__question-number {
+        text-align:     left;
         position:       absolute;
         left:           2rem;
         top:            2rem;
-        font-weight:    $font-light;
-        color:          $color-text;
+        font-weight:    $font-medium;
+        color:          $color-button-alt;
 
+        &__category {
+            position:   absolute;
+            top:        2.4rem;
+            right:      2.6rem;
+            text-align: right;
+            font-size:  $font-size-normal;
+            font-weight: $font-medium;
+            color:      $color-button-alt;
+        }
 
         &__emphasize {
-            font-size:  $font-size-medium;
-            color:      $color-button;
-            font-weight:$font-bold;
+            font-size:  $font-size-large;
+            color:      $color-button-alt;
+            font-weight:$font-light;
         }
     }
 
@@ -35,21 +48,34 @@
         width:              100%;
         height:             100%;
         display:            flex;
-        align-items:        center;
+        align-items:        start;
+        padding-top:        3.8rem;
 
         h2 {
-            color:          $color-text;
+            user-select:    none;
+            color:          $color-text-white;
             text-align:     left;
             font-size:      $font-size-medium;
-            line-height:    1.6rem;
-            font-weight:    $font-bold;
+            line-height:    2rem;
+            font-weight:    $font-light;
         }
     }
 
     &__answer {
         display:            flex;
         flex-direction:     column;
-        justify-content:    space-evenly;
+        justify-content:    flex-end;
+        gap: 1.5rem;
         padding-right:      2rem;
     }
+}
+
+.button-container {
+    position:       absolute;
+    bottom:         2rem;
+    left:           2rem;
+
+    display:        flex;
+
+    gap:            1rem;
 }

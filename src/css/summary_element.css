@@ -1,0 +1,28 @@
+.element-wrapper {
+  max-width: 100%;
+}
+
+.element {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.element__question h2 {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #FAFAFC;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 100;
+}
+.element__responses {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  max-width: 100%;
+  display: flex;
+  gap: 2rem;
+}/*# sourceMappingURL=summary_element.css.map */

@@ -1,6 +1,7 @@
 @import './variables.scss';
 
 .button {
+    user-select:        none;
     margin-top:         1.8rem;
     width:              12.5rem;
     height:             3.25rem;
@@ -24,5 +25,24 @@
 
     &:hover {
         background-color: $color-button-over;
+    }
+}
+
+.small-button {
+    width:          2.8rem;
+    height:         2.8rem;
+
+    border:         none;
+    background:     $color-button-altd;
+    border-radius:  50%;
+    color:          $color-text-white;
+
+    font-size:      $font-size-normal;
+    font-weight:    $font-bold;
+
+    cursor:         pointer;
+
+    &:hover {
+        background: $color-button-alto;
     }
 }

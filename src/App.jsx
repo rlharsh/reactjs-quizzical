@@ -4,10 +4,12 @@ import { useEffect } from 'react'
 /* Images */
 import blueBlob from './assets/images/blob_blue.svg'
 import yelloBlob from './assets/images/blob_yellow.svg'
+import scrimbaLogo from './assets/images/scrimba-logo.svg'
 
 /* Components */
 import Menu from './components/Menu'
 import Container from './components/Container'
+import Summary from './components/Summary'
 
 /* CSS */
 import './css/app.css'
@@ -21,7 +23,16 @@ function App() {
   const [gameRunning, setGameRunning] = useState(false);
   const [gameStart, setGameStart] = useState(false);
   const [quizQuestions, setQuizQuestions] = useState([]);
-  const [activeQuestion, setActiveQuestion] = useState([]);
+  const [summaryShowing, setSummaryShowing] = useState(false);
+
+  const [answeredQuestions, setAnsweredQuestions] = useState([]);
+
+  const onSelectionChanged = index => {
+
+    setAnsweredQuestions(index);
+    endGame();
+
+  }
 
   /* Start The Game */
   function startGame() {
@@ -29,6 +40,12 @@ function App() {
     setGameRunning(true);
     setGameStart(true);
     setMenuShowing(prevState => !prevState);
+  }
+
+  function endGame() {
+    setGameRunning(false);
+    setGameStart(false);
+    setSummaryShowing(prevState => !prevState);
   }
 
   /* Set the Active Question */
@@ -46,21 +63,29 @@ function App() {
           key: nanoid(),
           category: question.category,
           difficulty: question.difficulty,
-          question: question.question,
-          answerCorrect: question.correct_answer,
+          question: decodeHTMLEntities(question.question),
+          answerCorrect: decodeHTMLEntities(question.correct_answer),
           answerIncorrect: [...question.incorrect_answers]
         }
       }));
     })
   }, [gameStart])
 
+  function decodeHTMLEntities(text) {
+    var textArea = document.createElement('textarea');
+    textArea.innerHTML = text;
+    return textArea.value;
+  }
+
   return (
     <div className="App">
-      <img src={blueBlob} className="blob blob__blue" />
-      <img src={yelloBlob} className="blob blob__yellow" />
+      {/* <img src={blueBlob} className="blob blob__blue" />
+      <img src={yelloBlob} className="blob blob__yellow" /> */}
+      <a href='https://www.scrimba.com/' target='_blank' alt='Scrimba Logo'><img src={scrimbaLogo} className="logo" /></a>
       <main>
         {menuShowing && <Menu startGame={startGame}/>}
-        {gameRunning && <Container quizQuestions={quizQuestions} />}
+        {gameRunning && <Container quizQuestions={quizQuestions} onSelectionChanged={onSelectionChanged} />}
+        {summaryShowing && <Summary answers={answeredQuestions} />}
       </main>
 
     </div>
